@@ -1,10 +1,6 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
-
-int n;
-int a[10000];
 
 void merge2(int a[], int l2,int r2)
 {
@@ -46,16 +42,13 @@ void merge2(int a[], int l2,int r2)
 
 void merge(int a[], int l, int r) 
 {
-    if (r == l)
+    if (l<r)
     {
-        return;
-    }
     if (r - l == 1) 
 	{ 
         if (a[r] < a[l])
         {
             swap(a[r], a[l]);
-            return;
         }
     }
     else
@@ -64,13 +57,12 @@ void merge(int a[], int l, int r)
     	merge(a, l+(r-l)/2 + 1, r);
     	merge2(a, l, r);
 	}
+    }   
 }
 
-
-    
-
-
-int main() {    
+int main() {  
+int n;
+int a[10000];  
     cin >> n;
     for (int i = 0; i < n; i++)
     {
